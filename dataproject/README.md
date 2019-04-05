@@ -1,5 +1,7 @@
 # Dataproject
 
+I don't think I suceeded in uploading the .ipynb correctly, so I also placed by own file: 'DAP_classical swine fever Japan.ipynb'
+
 For the first time since 1992 there has been outbreaks of Classical Swine Fever in Japan. The first outbreak was located in september 2018 and the situtation has been closely monitored ever since.
 
 It seems like the only data available in english is the data on this following site: http://www.oie.int/wahis_2/public/wahid.php/Reviewreport/Review?reportid=27871
