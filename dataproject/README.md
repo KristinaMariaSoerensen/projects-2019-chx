@@ -1,5 +1,7 @@
 # Classical Swine Fever - Japan Outbreak 2018/2019 - Data Analysis
 
+See folder **DAP 2.0** for project.
+
 This data analysis project analyses and visualizes data on the current outbreak of classical swine fever (CSF) in Japan. 
 
 **Background for project:**
