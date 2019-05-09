@@ -1,0 +1,250 @@
+ID,City,Prefecture,Date,Species,Susceptibles,Cases,Deaths,Geo_Lookup,Latitude,Longitude
+on.1,Gifu,Gifu,2018-09-03,Swine,610,29,29,Gifu Gifu,35.4230949,136.7627526
+ 1.1,Gifu,Gifu,2018-09-13,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 2.1,Gifu,Gifu,2018-09-15,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 2.2,Gifu,Gifu,2018-09-18,Wild boar:Sus scrofa(Suidae),0,3,3,Gifu Gifu,35.4230949,136.7627526
+ 2.3,Gifu,Gifu,2018-09-21,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 3.1,Gifu,Gifu,2018-09-26,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 3.2,Kakamigahara,Gifu,2018-09-27,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+ 3.3,Kakamigahara,Gifu,2018-09-28,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+ 3.4,Gifu,Gifu,2018-09-28,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 4.1,Gifu,Gifu,2018-09-30,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+ 4.2,Gifu,Gifu,2018-10-02,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+ 4.3,Kakamigahara,Gifu,2018-10-03,Wild boar:Sus scrofa(Suidae),0,1,0,Kakamigahara Gifu,35.3995831,136.8485648
+ 4.4,Kakamigahara,Gifu,2018-10-03,Wild boar:Sus scrofa(Suidae),0,1,0,Kakamigahara Gifu,35.3995831,136.8485648
+ 4.5,Gifu,Gifu,2018-10-04,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+ 4.6,Gifu,Gifu,2018-10-05,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+ 4.7,Gifu,Gifu,2018-10-05,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 4.8,Gifu,Gifu,2018-10-07,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+ 4.9,Kakamigahara,Gifu,2018-10-08,Wild boar:Sus scrofa(Suidae),0,1,0,Kakamigahara Gifu,35.3995831,136.8485648
+ 5.1,Gifu,Gifu,2018-11-15,Swine,23,2,0,Gifu Gifu,35.4230949,136.7627526
+ 7.cluster 1,Gifu,Gifu,2018-10-09,Wild boar:Sus scrofa(Suidae),0,18,8,Gifu Gifu,35.4230949,136.7627526
+ 7.cluster 2,Kakamigahara,Gifu,2018-10-12,Wild boar:Sus scrofa(Suidae),0,12,2,Kakamigahara Gifu,35.3995831,136.8485648
+ 7.cluster 3,Seki,Gifu,2018-10-19,Wild boar:Sus scrofa(Suidae),0,7,3,Seki Gifu,35.4958031,136.9181482
+ 7.4,Kani,Gifu,2018-10-30,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+ 7.5,Yamagata,Gifu,2018-11-01,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+ 7.6,Sakahogi,Gifu,2018-11-24,Wild boar:Sus scrofa(Suidae),0,1,0,Sakahogi Gifu,35.4299044,136.9784989
+ 7.7,Yaotsu,Gifu,2018-11-26,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+ 7.8,Minokamo,Gifu,2018-12-03,Swine,491,4,0,Minokamo Gifu,35.4406551,137.0155052
+ 8.1,Kakamigahara,Gifu,2018-11-30,Wild boar:Sus scrofa(Suidae),0,2,1,Kakamigahara Gifu,35.3995831,136.8485648
+ 8.2,Yaotsu,Gifu,2018-12-02,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+ 8.3,Kani,Gifu,2018-12-04,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+ 8.4,Kakamigahara,Gifu,2018-12-04,Wild boar:Sus scrofa(Suidae),0,2,0,Kakamigahara Gifu,35.3995831,136.8485648
+ 8.5,Kani,Gifu,2018-12-06,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+ 8.6,Gifu,Gifu,2018-12-06,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+ 8.7,Sakahogi,Gifu,2018-12-06,Wild boar:Sus scrofa(Suidae),0,1,0,Sakahogi Gifu,35.4299044,136.9784989
+ 8.8,Seki,Gifu,2018-12-07,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+ 8.9,Seki,Gifu,2018-12-10,Swine,23,1,1,Seki Gifu,35.4958031,136.9181482
+ 9.1,Yaotsu,Gifu,2018-12-09,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+ 9.2,Seki,Gifu,2018-12-09,Wild boar:Sus scrofa(Suidae),0,1,1,Seki Gifu,35.4958031,136.9181482
+ 9.3,Kakamigahara,Gifu,2018-12-11,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+ 9.4,Kani,Gifu,2018-12-14,Swine,10,1,0,Kani Gifu,35.4261093,137.0613166
+10.1,Seki,Gifu,2018-11-28,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+10.2,Sakahogi,Gifu,2018-12-14,Wild boar:Sus scrofa(Suidae),0,1,0,Sakahogi Gifu,35.4299044,136.9784989
+10.3,Minokamo,Gifu,2018-12-15,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+10.4,Kakamigahara,Gifu,2018-12-15,Wild boar:Sus scrofa(Suidae),0,1,0,Kakamigahara Gifu,35.3995831,136.8485648
+10.5,Kani,Gifu,2018-12-18,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+10.6,Inuyama,Aichi,2018-12-19,Wild boar:Sus scrofa(Suidae),0,1,0,Inuyama Aichi,35.360969,136.984018
+10.7,Seki,Gifu,2018-12-23,Swine,7547,2,0,Seki Gifu,35.4958031,136.9181482
+11.1,Gifu,Gifu,2018-12-21,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+11.2,Kawabe,Gifu,2018-12-23,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+11.3,Yamagata,Gifu,2018-12-25,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+11.4,Inuyama,Aichi,2018-12-25,Wild boar:Sus scrofa(Suidae),0,1,1,Inuyama Aichi,35.360969,136.984018
+11.5,Sakahogi,Gifu,2018-12-26,Wild boar:Sus scrofa(Suidae),0,1,0,Sakahogi Gifu,35.4299044,136.9784989
+11.6,Kani,Gifu,2018-12-26,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+11.7,Kakamigahara,Gifu,2018-12-27,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+11.8,Yaotsu,Gifu,2018-12-28,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+11.9,Inuyama,Aichi,2018-12-28,Wild boar:Sus scrofa(Suidae),0,2,0,Inuyama Aichi,35.360969,136.984018
+11.10,Kakamigahara,Gifu,2018-12-31,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+11.11,Seki,Gifu,2018-12-31,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+11.12,Kakamigahara,Gifu,2019-01-05,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+12.1,Seki,Gifu,2019-01-03,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+12.2,Kakamigahara,Gifu,2019-01-08,Wild boar:Sus scrofa(Suidae),0,1,0,Kakamigahara Gifu,35.3995831,136.8485648
+13.1,Kawabe,Gifu,2019-01-14,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+13.2,Seki,Gifu,2019-01-14,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+13.3,Gifu,Gifu,2019-01-15,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+13.4,Yamagata,Gifu,2019-01-15,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+13.5,Tajimi,Gifu,2019-01-15,Wild boar:Sus scrofa(Suidae),0,1,0,Tajimi Gifu,35.3357572,137.127762
+13.6,Yaotsu,Gifu,2019-01-16,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+13.7,Inuyama,Aichi,2019-01-16,Wild boar:Sus scrofa(Suidae),0,2,0,Inuyama Aichi,35.360969,136.984018
+13.8,Kani,Gifu,2019-01-17,Wild boar:Sus scrofa(Suidae),0,1,1,Kani Gifu,35.4261093,137.0613166
+14.1,Kakamigahara,Gifu,2019-01-18,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+14.2,Mitake,Gifu,2019-01-19,Wild boar:Sus scrofa(Suidae),0,1,0,Mitake Gifu,35.4316129,137.1295844
+14.3,Yamagata,Gifu,2019-01-20,Wild boar:Sus scrofa(Suidae),0,1,1,Yamagata Gifu,35.4094858,136.7569769
+14.4,Kawabe,Gifu,2019-01-21,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+14.5,Kani,Gifu,2019-01-21,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+14.6,Gifu,Gifu,2019-01-22,Wild boar:Sus scrofa(Suidae),0,2,2,Gifu Gifu,35.4230949,136.7627526
+14.7,Minokamo,Gifu,2019-01-24,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+14.8,Kakamigahara,Gifu,2019-01-28,Swine,1662,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+15.1,Gifu,Gifu,2019-01-25,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+15.2,Gifu,Gifu,2019-01-25,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+15.3,Kani,Gifu,2019-01-25,Wild boar:Sus scrofa(Suidae),0,1,1,Kani Gifu,35.4261093,137.0613166
+15.4,Inuyama,Aichi,2019-01-27,Wild boar:Sus scrofa(Suidae),0,1,0,Inuyama Aichi,35.360969,136.984018
+15.5,Inuyama,Aichi,2019-01-28,Wild boar:Sus scrofa(Suidae),0,1,0,Inuyama Aichi,35.360969,136.984018
+15.6,Minokamo,Gifu,2019-01-29,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+15.7,Kakamigahara,Gifu,2019-01-29,Wild boar:Sus scrofa(Suidae),0,1,1,Kakamigahara Gifu,35.3995831,136.8485648
+15.8,Motosu,Gifu,2019-01-29,Swine,867,89,0,Motosu Gifu,35.4230949,136.7627526
+15.9,Kasugai,Aichi,2019-01-30,Wild boar:Sus scrofa(Suidae),0,1,0,Kasugai Aichi,35.273804,137.007459
+15.10,Minokamo,Gifu,2019-01-31,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+15.11,Yaotsu,Gifu,2019-01-31,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+15.12,Inuyama,Aichi,2019-02-01,Wild boar:Sus scrofa(Suidae),0,1,0,Inuyama Aichi,35.360969,136.984018
+15.13,Toyota,Aichi,2019-02-05,Swine,6640,5,0,Toyota Aichi,35.15195,137.301478
+15.14,Tahara,Aichi,2019-02-05,Swine,1600,5,0,Tahara Aichi,34.639112,137.183207
+15.15,Miyada,Nagano,2019-02-05,Swine,2300,5,0,Miyada Nagano,35.774827,137.874269
+15.16,Ena,Gifu,2019-02-05,Swine,4000,5,0,Ena Gifu,35.4498094,137.4128269
+15.17,Omihachiman,Shiga,2019-02-05,Swine,700,10,0,Omihachiman Shiga,35.1527915,136.0687365
+15.18,Higashi,Osaka,2019-02-05,Swine,600,8,0,Higashi Osaka,34.678147,135.597728
+16.1,Yamagata,Gifu,2019-02-02,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+16.2,Seki,Gifu,2019-02-02,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+16.3,Yamagata,Gifu,2019-02-03,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+16.4,Seki,Gifu,2019-02-04,Wild boar:Sus scrofa(Suidae),0,2,2,Seki Gifu,35.4958031,136.9181482
+16.5,Yamagata,Gifu,2019-02-04,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+16.6,Gifu,Gifu,2019-02-04,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+16.7,Kawabe,Gifu,2019-02-04,Wild boar:Sus scrofa(Suidae),0,3,0,Kawabe Gifu,35.4865125,137.0681577
+16.8,Minokamo,Gifu,2019-02-04,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+16.9,Kani,Gifu,2019-02-05,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+16.10,Yamagata,Gifu,2019-02-06,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+16.11,Gifu,Gifu,2019-02-06,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+16.12,Kani,Gifu,2019-02-06,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+16.13,Seki,Gifu,2019-02-06,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+16.14,Yamagata,Gifu,2019-02-07,Wild boar:Sus scrofa(Suidae),0,2,0,Yamagata Gifu,35.4094858,136.7569769
+16.15,Yamagata,Gifu,2019-02-08,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+16.16,Seki,Gifu,2019-02-08,Wild boar:Sus scrofa(Suidae),0,2,0,Seki Gifu,35.4958031,136.9181482
+16.17,Tahara,Aichi,2019-02-12,Swine,1180,10,0,Tahara Aichi,34.639112,137.183207
+16.18,Tahara,Aichi,2019-02-13,Swine,13420,10,0,Tahara Aichi,34.639112,137.183207
+17.1,Mino,Gifu,2019-02-10,Wild boar:Sus scrofa(Suidae),0,1,0,Mino Gifu,35.5442619,136.9075182
+17.2,Yaotsu,Gifu,2019-02-10,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.3,Yaotsu,Gifu,2019-02-11,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.4,Gifu,Gifu,2019-02-11,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+17.5,Kawabe,Gifu,2019-02-11,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+17.6,Mizunami,Gifu,2019-02-12,Wild boar:Sus scrofa(Suidae),0,2,2,Mizunami Gifu,35.3619929,137.2541668
+17.7,Minokamo,Gifu,2019-02-12,Wild boar:Sus scrofa(Suidae),0,2,0,Minokamo Gifu,35.4406551,137.0155052
+17.8,Yamagata,Gifu,2019-02-12,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+17.9,Yaotsu,Gifu,2019-02-12,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.10,Seki,Gifu,2019-02-12,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+17.11,Gifu,Gifu,2019-02-13,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+17.12,Tajimi,Gifu,2019-02-13,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+17.13,Minokamo,Gifu,2019-02-13,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+17.14,Tomika,Gifu,2019-02-13,Wild boar:Sus scrofa(Suidae),0,1,0,Tomika Gifu,35.4851461,136.9762038
+17.15,Tajimi,Gifu,2019-02-13,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+17.16,Gifu,Gifu,2019-02-14,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+17.17,Yaotsu,Gifu,2019-02-14,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.18,Mizunami,Gifu,2019-02-15,Wild boar:Sus scrofa(Suidae),0,1,1,Mizunami Gifu,35.3619929,137.2541668
+17.19,Kani,Gifu,2019-02-15,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+17.20,Mizunami,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,1,Mizunami Gifu,35.3619929,137.2541668
+17.21,Ena,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+17.22,Yaotsu,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.23,Tajimi,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,0,Tajimi Gifu,35.3357572,137.127762
+17.24,Kani,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+17.25,Kawabe,Gifu,2019-02-16,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+17.26,Mizunami,Gifu,2019-02-18,Swine,5775,23,3,Mizunami Gifu,35.3619929,137.2541668
+17.27,Yaotsu,Gifu,2019-02-19,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+17.28,Tajimi,Gifu,2019-02-19,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+17.29,Yaotsu,Gifu,2019-02-19,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+17.30,Kawabe,Gifu,2019-02-20,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+18.1,Kasugai,Aichi,2019-02-08,Wild boar:Sus scrofa(Suidae),0,1,0,Kasugai Aichi,35.273804,137.007459
+18.2,Motosu,Gifu,2019-02-17,Wild boar:Sus scrofa(Suidae),0,1,0,Motosu Gifu,35.4230949,136.7627526
+18.3,Yamagata,Gifu,2019-02-19,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+18.4,Mino,Gifu,2019-02-20,Wild boar:Sus scrofa(Suidae),0,1,0,Mino Gifu,35.5442619,136.9075182
+18.5,Yamagata,Gifu,2019-02-21,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+18.6,Gifu,Gifu,2019-02-21,Wild boar:Sus scrofa(Suidae),0,3,0,Gifu Gifu,35.4230949,136.7627526
+18.7,Minokamo,Gifu,2019-02-21,Wild boar:Sus scrofa(Suidae),0,3,0,Minokamo Gifu,35.4406551,137.0155052
+18.8,Ena,Gifu,2019-02-22,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+18.9,Kawabe,Gifu,2019-02-22,Wild boar:Sus scrofa(Suidae),0,1,1,Kawabe Gifu,35.4865125,137.0681577
+18.10,Gifu,Gifu,2019-02-23,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+18.11,Hichiso,Gifu,2019-02-23,Wild boar:Sus scrofa(Suidae),0,1,0,Hichiso Gifu,35.5425778,137.1198518
+18.12,Minokamo,Gifu,2019-02-23,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+18.13,Mitake,Gifu,2019-02-24,Wild boar:Sus scrofa(Suidae),0,1,0,Mitake Gifu,35.4316129,137.1295844
+18.14,Seki,Gifu,2019-02-24,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+18.15,Minokamo,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+18.16,Mitake,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,1,1,Mitake Gifu,35.4316129,137.1295844
+18.17,Seki,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,2,0,Seki Gifu,35.4958031,136.9181482
+18.18,Kani,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,2,1,Kani Gifu,35.4261093,137.0613166
+18.19,Mino,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,1,0,Mino Gifu,35.5442619,136.9075182
+18.20,Gifu,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,2,0,Gifu Gifu,35.4230949,136.7627526
+18.21,Kawabe,Gifu,2019-02-25,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+19.1,Kawabe,Gifu,2019-02-27,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+19.2,Minokamo,Gifu,2019-02-27,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+19.3,Mino,Gifu,2019-02-27,Wild boar:Sus scrofa(Suidae),0,1,1,Mino Gifu,35.5442619,136.9075182
+19.4,Seki,Gifu,2019-02-27,Wild boar:Sus scrofa(Suidae),0,1,0,Seki Gifu,35.4958031,136.9181482
+19.5,Mizunami,Gifu,2019-02-28,Wild boar:Sus scrofa(Suidae),0,1,1,Mizunami Gifu,35.3619929,137.2541668
+19.6,Yamagata,Gifu,2019-03-01,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+19.7,Kawabe,Gifu,2019-03-01,Wild boar:Sus scrofa(Suidae),0,2,0,Kawabe Gifu,35.4865125,137.0681577
+19.8,Ena,Gifu,2019-03-02,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+19.9,Inuyama,Aichi,2019-03-03,Wild boar:Sus scrofa(Suidae),0,1,0,Inuyama Aichi,35.360969,136.984018
+19.10,Yamagata,Gifu,2019-03-06,Swine,1507,8,0,Yamagata Gifu,35.4094858,136.7569769
+20.1,Yaotsu,Gifu,2019-03-06,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
+20.2,Kani,Gifu,2019-03-06,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+20.3,Yamagata,Gifu,2019-03-06,Wild boar:Sus scrofa(Suidae),0,1,0,Yamagata Gifu,35.4094858,136.7569769
+20.4,Tajimi,Gifu,2019-03-08,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+20.5,Minokamo,Gifu,2019-03-10,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+20.6,Tajimi,Gifu,2019-03-11,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+20.7,Sakahogi,Gifu,2019-03-12,Wild boar:Sus scrofa(Suidae),0,1,0,Sakahogi Gifu,35.4299044,136.9784989
+20.8,Yaotsu,Gifu,2019-03-12,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+20.9,Kani,Gifu,2019-03-12,Wild boar:Sus scrofa(Suidae),0,1,1,Kani Gifu,35.4261093,137.0613166
+21.1,Kasugai,Aichi,2019-03-09,Wild boar:Sus scrofa(Suidae),0,1,1,Kasugai Aichi,35.273804,137.007459
+21.2,Kani,Gifu,2019-03-14,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+21.3,Ena,Gifu,2019-03-16,Wild boar:Sus scrofa(Suidae),0,2,2,Ena Gifu,35.4498094,137.4128269
+21.4,Yamagata,Gifu,2019-03-18,Wild boar:Sus scrofa(Suidae),0,1,1,Yamagata Gifu,35.4094858,136.7569769
+21.5,Mizunami,Gifu,2019-03-18,Wild boar:Sus scrofa(Suidae),0,1,1,Mizunami Gifu,35.3619929,137.2541668
+21.6,Yaotsu,Gifu,2019-03-19,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+21.7,Minokamo,Gifu,2019-03-20,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+21.8,Ena,Gifu,2019-03-20,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+21.9,Tajimi,Gifu,2019-03-20,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+21.10,Gifu,Gifu,2019-03-20,Wild boar:Sus scrofa(Suidae),0,1,1,Gifu Gifu,35.4230949,136.7627526
+21.11,Mizunami,Gifu,2019-03-22,Wild boar:Sus scrofa(Suidae),0,2,2,Mizunami Gifu,35.3619929,137.2541668
+21.12,Ena,Gifu,2019-03-22,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+21.13,Yamagata,Gifu,2019-03-22,Swine,3637,17,0,Yamagata Gifu,35.4094858,136.7569769
+22.1,Shirakawa,Gifu,2019-03-23,Wild boar:Sus scrofa(Suidae),0,1,1,Shirakawa Gifu,35.5808397,137.1895472
+22.2,Ena,Gifu,2019-03-23,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+22.3,Kani,Gifu,2019-03-24,Wild boar:Sus scrofa(Suidae),0,1,1,Kani Gifu,35.4261093,137.0613166
+22.4,Kani,Gifu,2019-03-25,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+22.5,Ena,Gifu,2019-03-25,Wild boar:Sus scrofa(Suidae),0,2,2,Ena Gifu,35.4498094,137.4128269
+22.6,Hichiso,Gifu,2019-03-26,Wild boar:Sus scrofa(Suidae),0,1,1,Hichiso Gifu,35.5425778,137.1198518
+22.7,Kani,Gifu,2019-03-26,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+22.8,Seto,Aichi,2019-03-26,Swine,4131,0,0,Seto Aichi,35.240984,137.116187
+22.9,Tahara,Aichi,2019-03-27,Swine,1647,0,0,Tahara Aichi,34.639112,137.183207
+22.10,Kani,Gifu,2019-03-27,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+22.11,Gujo,Gifu,2019-03-27,Wild boar:Sus scrofa(Suidae),0,1,1,Gujo Gifu,35.748417,136.9643095
+22.12,Kawabe,Gifu,2019-03-27,Wild boar:Sus scrofa(Suidae),0,1,0,Kawabe Gifu,35.4865125,137.0681577
+22.13,Kani,Gifu,2019-03-28,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+22.14,Seto,Aichi,2019-03-28,Swine,1441,0,0,Seto Aichi,35.240984,137.116187
+22.15,Tahara,Aichi,2019-03-28,Swine,5972,0,0,Tahara Aichi,34.639112,137.183207
+22.16,Tahara,Aichi,2019-03-28,Swine,1014,0,0,Tahara Aichi,34.639112,137.183207
+22.17,Minokamo,Gifu,2019-03-29,Swine,674,0,0,Minokamo Gifu,35.4406551,137.0155052
+23.1,Tajimi,Gifu,2019-04-01,Wild boar:Sus scrofa(Suidae),0,1,1,Tajimi Gifu,35.3357572,137.127762
+23.2,Yaotsu,Gifu,2019-04-02,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+23.3,Kani,Gifu,2019-04-03,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+23.4,Seki,Gifu,2019-04-03,Wild boar:Sus scrofa(Suidae),0,2,2,Seki Gifu,35.4958031,136.9181482
+23.5,Yaotsu,Gifu,2019-04-03,Wild boar:Sus scrofa(Suidae),0,1,1,Yaotsu Gifu,35.4755935,137.141068
+23.6,Shirakawa,Gifu,2019-04-03,Wild boar:Sus scrofa(Suidae),0,1,1,Shirakawa Gifu,35.5808397,137.1895472
+24.1,Hichiso,Gifu,2019-04-03,Wild boar:Sus scrofa(Suidae),0,1,1,Hichiso Gifu,35.5425778,137.1198518
+24.2,Ena,Gifu,2019-04-04,Wild boar:Sus scrofa(Suidae),0,1,1,Ena Gifu,35.4498094,137.4128269
+24.3,Gujo,Gifu,2019-04-04,Wild boar:Sus scrofa(Suidae),0,1,0,Gujo Gifu,35.748417,136.9643095
+24.4,Mitake,Gifu,2019-04-06,Wild boar:Sus scrofa(Suidae),0,1,1,Mitake Gifu,35.4316129,137.1295844
+24.5,Minokamo,Gifu,2019-04-07,Wild boar:Sus scrofa(Suidae),0,1,1,Minokamo Gifu,35.4406551,137.0155052
+24.6,Mitake,Gifu,2019-04-07,Wild boar:Sus scrofa(Suidae),0,1,1,Mitake Gifu,35.4316129,137.1295844
+24.7,Gujo,Gifu,2019-04-08,Wild boar:Sus scrofa(Suidae),0,1,0,Gujo Gifu,35.748417,136.9643095
+24.8,Minokamo,Gifu,2019-04-08,Wild boar:Sus scrofa(Suidae),0,1,0,Minokamo Gifu,35.4406551,137.0155052
+24.9,Toki,Gifu,2019-04-08,Wild boar:Sus scrofa(Suidae),0,1,1,Toki Gifu,35.3524854,137.1834191
+24.10,Ena,Gifu,2019-04-08,Swine,3521,0,0,Ena Gifu,35.4498094,137.4128269
+24.11,Seto,Aichi,2019-04-09,Swine,4562,0,0,Seto Aichi,35.240984,137.116187
+24.12,Kani,Gifu,2019-04-10,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+24.13,Ena,Gifu,2019-04-10,Wild boar:Sus scrofa(Suidae),0,4,0,Ena Gifu,35.4498094,137.4128269
+24.14,Kani,Gifu,2019-04-10,Wild boar:Sus scrofa(Suidae),0,1,0,Kani Gifu,35.4261093,137.0613166
+24.15,Hichiso,Gifu,2019-04-10,Wild boar:Sus scrofa(Suidae),0,2,0,Hichiso Gifu,35.5425778,137.1198518
+25.cluster 1,Kawabe,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,5,0,Kawabe Gifu,35.4865125,137.0681577
+25.cluster 2,Shirakawa,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,2,1,Shirakawa Gifu,35.5808397,137.1895472
+25.cluster 3,Mino,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,4,0,Mino Gifu,35.5442619,136.9075182
+25.cluster 4,Kani,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,2,0,Kani Gifu,35.4261093,137.0613166
+25.cluster 5,Minokamo,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,10,1,Minokamo Gifu,35.4406551,137.0155052
+25.cluster 6,Seki,Gifu,2019-04-09,Wild boar:Sus scrofa(Suidae),0,10,0,Seki Gifu,35.4958031,136.9181482
+25.cluster 7,Gujo,Gifu,2019-04-10,Wild boar:Sus scrofa(Suidae),0,2,1,Gujo Gifu,35.748417,136.9643095
+25.8,Gifu,Gifu,2019-04-11,Wild boar:Sus scrofa(Suidae),0,1,0,Gifu Gifu,35.4230949,136.7627526
+25.9,Mitake,Gifu,2019-04-11,Wild boar:Sus scrofa(Suidae),0,4,2,Mitake Gifu,35.4316129,137.1295844
+25.cluster 10,Ena,Gifu,2019-04-11,Wild boar:Sus scrofa(Suidae),0,10,1,Ena Gifu,35.4498094,137.4128269
+25.11,Yamagata,Gifu,2019-04-13,Wild boar:Sus scrofa(Suidae),0,2,1,Yamagata Gifu,35.4094858,136.7569769
+25.cluster 12,Hichiso,Gifu,2019-04-15,Wild boar:Sus scrofa(Suidae),0,2,1,Hichiso Gifu,35.5425778,137.1198518
+25.13,Gifu,Gifu,2019-04-16,Swine,67,0,0,Gifu Gifu,35.4230949,136.7627526
+25.14,Ena,Gifu,2019-04-16,Swine,9729,0,0,Ena Gifu,35.4498094,137.4128269
+25.15,Yaotsu,Gifu,2019-04-17,Wild boar:Sus scrofa(Suidae),0,1,0,Yaotsu Gifu,35.4755935,137.141068
