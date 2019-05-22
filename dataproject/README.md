@@ -29,5 +29,8 @@ Apart from standard packages the project uses the Basemap package from matplotli
 *from mpl_toolkits.basemap import Basemap*
 
 Can be installed in the terminal using Anaconda as packagemanager by:
-' conda install -c conda-forge basemap' 
+' conda install -c conda-forge basemap'
+
+You might also have to install the data-hires files seperately:
+' conda install -c conda-forge basemap-data-hires'
 

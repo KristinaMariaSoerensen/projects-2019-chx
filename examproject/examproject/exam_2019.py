@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import optimize
-
+from scipy import interpolate
 
 ###################################################
 #           Functions for problem 1.1             #                 
@@ -87,9 +87,7 @@ def solve_period_2(w,rho,b,gamma):
         # ii. initial value (half)
         x0 = 1
 
-        # iii. constraint
-        const = lambda l2: 
-        
+        # iii. l constraint
         # iv. optimizer
         result = optimize.minimize_scalar(obj,x0)
 
@@ -104,7 +102,7 @@ def solve_period_2(w,rho,b,gamma):
 #           Functions for problem 1.2             #                 
 ###################################################
 
-def v2_interp(h2_vec, v2_vec)
+def v2_interp(h2_vec, v2_vec):
     """ The interpolator of the v2
 
     Args:
@@ -114,7 +112,7 @@ def v2_interp(h2_vec, v2_vec)
     Returns:
 
     """
-return interpolate.RegularGridInterpolator([h2_vec], v2_vec,bounds_error=False,fill_value=None)
+    return interpolate.RegularGridInterpolator([h2_vec], v2_vec,bounds_error=False,fill_value=None)
 
 def v1(w,h1,l1,b,rho,gamma, beta, Delta, v2_interp):
     """ The utility function to be maximized in period 2
@@ -153,7 +151,7 @@ def v1(w,h1,l1,b,rho,gamma, beta, Delta, v2_interp):
 
 
 def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
-     """ The utility function to be maximized in period 2
+    """ The utility function to be maximized in period 2
 
     Args: 
         w (float): The wage rate
@@ -167,12 +165,11 @@ def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
         v2_interp 
 
     Returns:
-        
-
+        Something
     """
 
     # a. grids
-    h1_vec = np.linspace(0.1,1.5,100) 
+    h1_vec = np.linspace(0.1,1.5,100)
     v1_vec = np.empty(100)
     l1_vec = np.empty(100)
 
@@ -185,8 +182,8 @@ def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
         # ii. initial value (half)
         x0 = 1
 
-        # iii. constraint
-        const = lambda l1: 
+        # iii. l constraint
+         
         
         # iv. optimizer
         result = optimize.minimize_scalar(obj,x0)
@@ -196,3 +193,34 @@ def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
         l1_vec[i] = result.x
         
     return h1_vec,v1_vec,l1_vec
+
+
+####################################################################
+####################################################################
+#                       Assignment 2                               #
+#                                                                  #
+####################################################################
+####################################################################
+
+###################################################
+#           Functions for problem 2.4            #                 
+###################################################
+
+def simul(alpha,h,b,phi,gamma,delta,omega):
+    """ Simulation of dataset
+    
+    Args:
+
+    Returns:
+        Dataset for a 1000 periods
+    """
+
+    # Simulation of shocks
+    np.random.seed(2019) # set the seed
+    n=1000
+
+    # stochastic shocks
+    x_vec = par['sigma_x']*np.random.normal(size=n)
+    c_vec = par['sigma_c']*np.random.normal(size=n)
+    
+    return x_vec,c_vec
