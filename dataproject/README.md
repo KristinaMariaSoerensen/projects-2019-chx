@@ -21,3 +21,13 @@ In the workbook *CSF data generation* I've scraped the html code from all the re
 In this workbook I analyze the data generated in *CSF data generation* by:
 - Making a barplot showing outbreaks over time divided on oubreaks among domestic pig (swine) and wild boar
 - Making a map plotting all outbreaks
+
+**Dependencies**
+
+Apart from standard packages the project uses the Basemap package from matplotlip.
+
+*from mpl_toolkits.basemap import Basemap*
+
+Can be installed in the terminal using Anaconda as packagemanager by:
+' conda install -c conda-forge basemap' 
+
