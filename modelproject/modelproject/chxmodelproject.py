@@ -24,11 +24,11 @@ def keynesian_cross(T, I, G, NX, a, b):
     AD_arrey = (a + b * (Y_arrey - T) + I + G + NX)
     degree = Y_arrey
 
-    fig = plt.figure(figsize=(8,6), dpi=100)
+    fig = plt.figure(figsize=(6,6), dpi=100)
     ax = fig.add_subplot(1,1,1)
 
-    ax.plot(degree, label="45-degree line")
-    ax.plot(AD_arrey, label="AD=C+I+G+NX")
+    ax.plot(Y_arrey, degree, label="45-degree line")
+    ax.plot(Y_arrey, AD_arrey, label="AD=C+I+G+NX")
 
     ax.set_xlabel("Y")
     ax.set_ylabel("AD")
@@ -81,9 +81,9 @@ def keynesian_cross_NXshift(T, I, G, NX, a, b, delta_NX):
     fig = plt.figure(figsize=(8,6), dpi=100)
     ax = fig.add_subplot(1,1,1)
 
-    ax.plot(degree, label="45-degree line")
-    ax.plot(AD_arrey, label="AD=C+I+G+NX")
-    ax.plot(AD2_arrey, label="AD'=C+I+G+NX'")
+    ax.plot(Y_arrey, degree, label="45-degree line")
+    ax.plot(Y_arrey, AD_arrey, label="AD=C+I+G+NX")
+    ax.plot(Y_arrey, AD2_arrey, label="AD'=C+I+G+NX'")
 
     ax.set_xlabel("Y")
     ax.set_ylabel("AD")
@@ -119,9 +119,9 @@ def keynesian_cross_NXshift_t(k, t, I, G, NX, a, b, delta_NX):
     fig = plt.figure(figsize=(8,6), dpi=100)
     ax = fig.add_subplot(1,1,1)
 
-    ax.plot(degree, label="45-degree line")
-    ax.plot(AD_arrey, label="AD=C+I+G+NX")
-    ax.plot(AD2_arrey, label="AD'=C+I+G+NX'")
+    ax.plot(Y_arrey, degree, label="45-degree line")
+    ax.plot(Y_arrey, AD_arrey, label="AD=C+I+G+NX")
+    ax.plot(Y_arrey, AD2_arrey, label="AD'=C+I+G+NX'")
 
 
     ax.set_xlabel("Y")
