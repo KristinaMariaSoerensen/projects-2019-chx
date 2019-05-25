@@ -9,7 +9,7 @@ import sympy as sm
 #           Functions for problem 1.1             #                 
 ###################################################
 
-def consumption(w, h, l, b):
+def consumption(w,h,l,b):
     """ The consumption function dependent on work or not.
 
     Args:
@@ -42,8 +42,7 @@ def utility(c,rho):
     """
     return c**(1-rho)/(1-rho)
 
-
-def disutility(gamma, l):
+def disutility(gamma,l):
     """ The disutility of working
     Args:
         gamma (float): Disutility of working
@@ -53,7 +52,6 @@ def disutility(gamma, l):
         The disutility of work
     """
     return gamma*l
-
 
 def v2(w,h2,l2,b,rho,gamma):
     """ The utility function to be maximized in period 2
@@ -83,29 +81,20 @@ def solve_period_2(w,rho,b,gamma):
 
     # b. solve for each h2 in grid
     for i,h2 in enumerate(h2_vec):
+        if v2(w,h2,1,b,rho,gamma) > v2(w,h2,0,b,rho,gamma):
+            l2_vec[i] = 1
+        else:
+            l2_vec[i] = 0
 
-        # i. objective
-        obj = lambda l2: -v2(w,h2,l2,b,rho,gamma)
-
-        # ii. initial value (half)
-        x0 = 1
-
-        # iii. l constraint
-        # iv. optimizer
-        result = optimize.minimize_scalar(obj,x0)
-
-        # v. save
-        v2_vec[i] = -result.fun
-        l2_vec[i] = result.x
-        
-    return h2_vec,v2_vec,l2_vec
-
+        v2_vec[i] = v2(w,h2,l2_vec[i],b,rho,gamma)
+    
+    return v2_vec,l2_vec
 
 ###################################################
 #           Functions for problem 1.2             #                 
 ###################################################
 
-def v2_interp(h2_vec, v2_vec):
+def v2_interp(h2_vec,v2_vec):
     """ The interpolator of the v2
 
     Args:
@@ -117,7 +106,7 @@ def v2_interp(h2_vec, v2_vec):
     """
     return interpolate.RegularGridInterpolator([h2_vec], v2_vec,bounds_error=False,fill_value=None)
 
-def v1(w,h1,l1,b,rho,gamma, beta, Delta, v2_interp):
+def v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp):
     """ The utility function to be maximized in period 2
 
     Args: 
@@ -152,7 +141,6 @@ def v1(w,h1,l1,b,rho,gamma, beta, Delta, v2_interp):
     # v. total value
     return utility(c1, rho) - disutility(gamma, l1) + beta*v2
 
-
 def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
     """ The utility function to be maximized in period 2
 
@@ -178,32 +166,20 @@ def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
 
     # b. solve for each h2 in grid
     for i,h1 in enumerate(h1_vec):
+        if v1(w,h1,1,b,rho,gamma,beta,Delta,v2_interp) > v1(w,h1,0,b,rho,gamma,beta,Delta,v2_interp):
+            l1_vec[i] = 1
+        else:
+            l1_vec[i] = 0
 
-        # i. objective
-        obj = lambda l1: -v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp)
-
-        # ii. initial value (half)
-        x0 = 1
-
-        # iii. l constraint
-         
+        v1_vec[i] = v1(w,h1,l1_vec[i],b,rho,gamma,beta,Delta,v2_interp)
         
-        # iv. optimizer
-        result = optimize.minimize_scalar(obj,x0)
-
-        # v. save
-        v1_vec[i] = -result.fun
-        l1_vec[i] = result.x
-        
-    return h1_vec,v1_vec,l1_vec
+    return v1_vec,l1_vec
 
 
-####################################################################
-####################################################################
-#                       Assignment 2                               #
-#                                                                  #
-####################################################################
-####################################################################
+######################################################################
+##                       Assignment 2                               ##
+######################################################################
+
 ####################################################
 #           Functions for problem 2.2            #                 
 ###################################################
@@ -400,7 +376,6 @@ def corr_of_phi(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
         
     return np.corrcoef(y,pi)[1][0]
 
-
 def plot_corr_phi(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,sigma_x,sigma_c,
                                 y_neg1,pi_neg1,s_neg1,v_neg1):
     """
@@ -443,3 +418,56 @@ def optimize_phi(corr_goal,T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,o
     x0 = 0
     
     return optimize.minimize_scalar(obj,x0,method='bounded',bounds=[0,1])
+
+###################################################
+#           Functions for problem 2.6            #                 
+###################################################
+
+def characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                    sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1):
+    """
+    """
+    simul = stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                        sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)
+        
+    y = simul[0]
+    pi = simul[1]
+
+    var_y  = np.var(y)
+    var_pi = np.var(pi)
+    corr   = np.corrcoef(y,pi)[1][0]
+
+    autocorr_y  = np.corrcoef(y[1:],y[:-1])[1][0]
+    autocorr_pi = np.corrcoef(pi[1:],pi[:-1])[1][0]
+
+    return var_y,var_pi,corr,autocorr_y,autocorr_pi
+
+
+def optimize_all_char(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,
+                                y_neg1,pi_neg1,s_neg1,v_neg1,
+                                var_y,var_pi,corr_y_pi,autocorr_y,autocorr_pi):
+    """
+    """
+    def funct(phi,sigma_x,sigma_c):
+        return   (
+                (characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[0] - var_y)**2
+              + (characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[1] - var_pi)**2
+              + (characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[2] - corr_y_pi)**2
+              + (characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[3] - autocorr_y)**2
+              + (characteristics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
+                                sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[4] - autocorr_pi)**2
+                  )
+    
+    def f(par_size):
+        phi,sigma_x,sigma_c = par_size
+        return funct(phi,sigma_x,sigma_c)
+
+    # Initial guess and bounds for phi, sigma_c, sigma_x
+    x0 = 0.5,1,1
+    bnds = ((0,1), (1e-8,None), (1e-8,None))
+
+    return optimize.minimize(f,x0,bounds=bnds)
