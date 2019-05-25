@@ -3,6 +3,8 @@ from scipy import optimize
 from scipy import interpolate
 
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
 import sympy as sm
 
 ###################################################
@@ -72,15 +74,14 @@ def v2(w,h2,l2,b,rho,gamma):
     
     return utility(c2, rho) - disutility(gamma, l2)
 
-def solve_period_2(w,rho,b,gamma):
+def solve_period_2(w,rho,b,gamma,h_vec):
 
     # a. grids
-    h2_vec = np.linspace(0.1,1.5,100) 
     v2_vec = np.empty(100)
     l2_vec = np.empty(100)
 
     # b. solve for each h2 in grid
-    for i,h2 in enumerate(h2_vec):
+    for i,h2 in enumerate(h_vec):
         if v2(w,h2,1,b,rho,gamma) > v2(w,h2,0,b,rho,gamma):
             l2_vec[i] = 1
         else:
@@ -88,23 +89,39 @@ def solve_period_2(w,rho,b,gamma):
 
         v2_vec[i] = v2(w,h2,l2_vec[i],b,rho,gamma)
     
+    # illustration
+    fig = plt.figure(figsize=(10,4))
+    ax = fig.add_subplot(1,2,1)
+    ax.plot(h_vec,l2_vec)
+    ax.grid()
+    ax.set_xlabel('$h_2$')
+    ax.set_ylabel('$l_2$')
+    ax.set_title('Work function in period 2')
+
+    ax = fig.add_subplot(1,2,2)
+    ax.plot(h_vec,v2_vec)
+    ax.grid()
+    ax.set_xlabel('$h_2$')
+    ax.set_ylabel('$v_2$')
+    ax.set_title('Value function in period 2')
+
     return v2_vec,l2_vec
 
 ###################################################
 #           Functions for problem 1.2             #                 
 ###################################################
 
-def v2_interp(h2_vec,v2_vec):
+def v2_interp(h_vec,v2_vec):
     """ The interpolator of the v2
 
     Args:
-        h2_vec
+        h_vec
         v2_vec
 
     Returns:
 
     """
-    return interpolate.RegularGridInterpolator([h2_vec], v2_vec,bounds_error=False,fill_value=None)
+    return interpolate.RegularGridInterpolator([h_vec], v2_vec,bounds_error=False,fill_value=None)
 
 def v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp):
     """ The utility function to be maximized in period 2
@@ -141,7 +158,7 @@ def v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp):
     # v. total value
     return utility(c1, rho) - disutility(gamma, l1) + beta*v2
 
-def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
+def solve_period_1(w,b,rho,gamma,beta,Delta,v2_interp,h_vec):
     """ The utility function to be maximized in period 2
 
     Args: 
@@ -158,24 +175,59 @@ def solve_period_1(w,rho,b,gamma,beta,Delta,v2_interp):
     Returns:
         Something
     """
-
+    
     # a. grids
-    h1_vec = np.linspace(0.1,1.5,100)
     v1_vec = np.empty(100)
     l1_vec = np.empty(100)
 
     # b. solve for each h2 in grid
-    for i,h1 in enumerate(h1_vec):
+    for i,h1 in enumerate(h_vec):
         if v1(w,h1,1,b,rho,gamma,beta,Delta,v2_interp) > v1(w,h1,0,b,rho,gamma,beta,Delta,v2_interp):
             l1_vec[i] = 1
         else:
             l1_vec[i] = 0
 
         v1_vec[i] = v1(w,h1,l1_vec[i],b,rho,gamma,beta,Delta,v2_interp)
-        
+
+    # illustration
+    fig = plt.figure(figsize=(10,4))
+    
+    ax = fig.add_subplot(1,2,1)
+    ax.plot(h_vec,l1_vec)
+    ax.grid()
+    ax.set_xlabel('$h_1$')
+    ax.set_ylabel('$l_1$')
+    ax.set_title('Work function in period 1')
+
+    ax = fig.add_subplot(1,2,2)
+    ax.plot(h_vec,v1_vec)
+    ax.grid()
+    ax.set_xlabel('$h_1$')
+    ax.set_ylabel('$v_1$')
+    ax.set_title('value function in period 1')
+    
     return v1_vec,l1_vec
 
+###################################################
+#           Functions for problem 1.3             #                 
+###################################################
 
+def optimization_period_2():
+    """
+    """
+    def diff_p2(w,h2,b,rho,gamma):
+        return v2(w,h2,1,b,rho,gamma) - v2(w,h2,0,b,rho,gamma)
+
+    def f(par_size):
+        w,h2,b,rho,gamma = par_size
+        return diff_p2(w,h2,b,rho,gamma)
+
+    # Initial guess and bounds for w,h,b,rho,gamma
+    x0 = 0.9,1,1,2,0.1
+    bnds = ((0,b),(0.1,1.5),(w,None),(0,None),(0,None))
+
+    return optimize.minimize(f,x0,bounds=bnds)
+    
 ######################################################################
 ##                       Assignment 2                               ##
 ######################################################################
@@ -471,3 +523,123 @@ def optimize_all_char(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,
     bnds = ((0,1), (1e-8,None), (1e-8,None))
 
     return optimize.minimize(f,x0,bounds=bnds)
+
+######################################################################
+##                       Assignment 3                               ##
+######################################################################
+
+##################################################
+#           Functions for problem 3.2            #                 
+##################################################
+
+def demand_plots_3D(b1,b2,b3,e1,e2,e3):
+    """
+    """
+    # A set of price vectors are defined
+    p1_vec = np.linspace(0.1,5,100)
+    p2_vec = np.linspace(0.1,5,100)
+    p3_vec = 1
+
+    # Now grids for the endowments and prices are constructed
+    e1_grid = np.empty((100,100))
+    e2_grid = np.empty((100,100))
+    e3_grid = np.empty((100,100))
+    p1_grid, p2_grid = np.meshgrid(p1_vec,p2_vec)
+
+    # Now we can find the excess demands with a loop
+    for i,p1 in enumerate(p1_vec):
+        for j,p2 in enumerate(p2_vec):
+            e1_grid[i,j] = np.sum(b1*((p1*e1 + p2*e2 + e3)/p1) - e1)
+            e2_grid[i,j] = np.sum(b2*((p1*e1 + p2*e2 + e3)/p2) - e2)
+            e3_grid[i,j] = np.sum(b3*(p1*e1 + p2*e2 + e3) - e3)
+
+
+    fig = plt.figure(figsize=(10,19))
+
+    ax1 = fig.add_subplot(3,1,1,projection='3d')
+    fig1 = ax1.plot_surface(p1_grid, p2_grid, e1_grid, cmap=cm.coolwarm)
+    ax1.set_xlabel('$p_1$')
+    ax1.set_ylabel('$p_2$')
+    ax1.invert_xaxis()
+    ax1.set_title('Excess demand of Good 1', fontweight='bold')
+    fig.colorbar(fig1, shrink=0.5, aspect=5)
+
+    ax2 = fig.add_subplot(3,1,2,projection='3d')
+    fig2 = ax2.plot_surface(p1_grid, p2_grid, e2_grid, cmap=cm.coolwarm)
+    ax2.set_xlabel('$p_1$')
+    ax2.set_ylabel('$p_2$')
+    ax2.invert_xaxis()
+    ax2.set_title('Excess demand of Good 2', fontweight='bold')
+    fig.colorbar(fig2, shrink=0.5, aspect=5)
+
+    ax3 = fig.add_subplot(3,1,3,projection='3d')
+    fig3 = ax3.plot_surface(p1_grid, p2_grid, e3_grid, cmap=cm.coolwarm)
+    ax3.set_xlabel('$p_1$')
+    ax3.set_ylabel('$p_2$')
+    ax3.invert_xaxis()
+    ax3.set_title('Excess demand of Good 3', fontweight='bold')
+    fig.colorbar(fig3, shrink=0.5, aspect=5)
+
+    return
+
+    ##################################################
+    #           Functions for problem 3.3            #                 
+    ##################################################
+
+##################################################
+#           Functions for problem 3.3            #                 
+##################################################
+
+def find_equilibrium(b1,b2,p1,p2,e1,e2,e3,eps,kappa,N,maxiter=25000):
+    """
+    """
+    t = 0
+    while True:
+        # a. step 1: excess demand
+        z1 = np.sum(b1*(p1*e1 + p2*e2 + e3)/p1 - e1)
+        z2 = np.sum(b2*(p1*e1 + p2*e2 + e3)/p2 - e2)
+            
+        # b: step 2: stop?
+        if np.abs(z1) < eps and np.abs(z2) < eps or t >= maxiter:
+            print(f'{t:3d}: (p1,p2) = ({p1:.2f},{p2:.2f}) -> ({z1:.2f},{z2:.2f})')
+            break
+             
+        # c. step 3: update p1 and p2
+        p1 = p1 + kappa*z1/N
+        p2 = p2 + kappa*z2/N
+                
+        # d. step 4: return 
+        if t < 5 or t%5000 == 0:
+            print(f'{t:3d}: (p1,p2) = ({p1:.2f},{p2:.2f}) -> ({z1:.2f},{z2:.2f})')
+        elif t == 5:
+            print('   ...')
+                
+        t += 1    
+
+    return [p1,p2]
+
+##################################################
+#           Functions for problem 3.4            #                 
+##################################################
+
+def utility_walras(p1,p2,e1,e2,e3,b1,b2,b3,gamma):
+
+
+    """
+    """
+    I = p1*e1 + p2*e2 + e3
+    
+    x1 = b1*(I/p1)
+    x2 = b2*(I/p2)
+    x3 = b3*I
+    
+    utility = ((x1**b1)*(x2**b2)*(x3**b3))**gamma
+    
+    fig = plt.figure(figsize=(12,6))
+    ax = fig.add_subplot(1,1,1)
+    ax.hist(utility,bins=500)
+   
+    ax.set_xlabel('Utility')
+    ax.set_ylabel('# consumers')
+    
+    return 
