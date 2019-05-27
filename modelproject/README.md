@@ -8,3 +8,8 @@ The **results** of the project can be seen from running [modelproject.ipynb](mod
 Scripts used to optain these results are in the folder /modelproject in the /chxmodelproject.py file.
 
 **Dependencies:** Apart from a standard Anaconda Python 3 installation the project requires no further installations.
+
+**Sources**
+N. Gregory Mankiw: Macroeconomics, International Edition, 8. udgave, Worth Publishers, New York
+
+Inspiration on code and how to solve the model were found at: https://github.com/NumEconCopenhagen.
