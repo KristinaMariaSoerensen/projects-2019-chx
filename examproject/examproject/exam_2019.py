@@ -14,11 +14,11 @@ import ipywidgets as widgets
 ###################################################
 
 def consumption(w,h,l,b):
-    """ The consumption function dependent on work or not.
+    """ The consumption function dependent on to work or not.
     Args:
         w (float): The wage rate
         h (float): Human capital
-        l (Boolean): Work dummy
+        l (Int): Work dummy
         b (float): Unemployment benefit
     Returns:
         c (float): Consumption
@@ -54,14 +54,16 @@ def v2(w,h2,l2,b,rho,gamma):
     Args: 
         w (float): The wage rate
         h2 (float): Human capital in the second period
-        l2 (Boolean): Work dummy in the second period
+        l2 (Int): Work dummy in the second period
         b (float): Unemployment benefit
         rho (float): Risk aversion
         gamma (float): Disutility of working
     Returns:
-        v2
+        Value of the utility function
     """
+    # Consumption function of the variables given:
     c2 = consumption(w,h2,l2,b)
+
     return utility(c2, rho) - disutility(gamma, l2)
 
 def solve_period_2(w,rho,b,gamma,h_vec):
@@ -90,7 +92,7 @@ def solve_period_2(w,rho,b,gamma,h_vec):
 
         v2_vec[i] = v2(w,h2,l2_vec[i],b,rho,gamma)
     
-    # illustration
+    # c. Plot
     fig = plt.figure(figsize=(12,4))
     ax = fig.add_subplot(1,2,1)
     ax.plot(h_vec,l2_vec, color='red')
@@ -128,19 +130,16 @@ def solve_period_2(w,rho,b,gamma,h_vec):
 
 def v2_interp(h_vec,v2_vec):
     """ The interpolator of the v2
-
     Args:
-        h_vec
-        v2_vec
-
+        h_vec (arrey): Vector of values for human capital
+        v2_vec (arrey): Vector of values for corresponding utility values
     Returns:
-
+        v2_interp (scipy interpolator): The interpolator for the expected value of utility in period 2.
     """
     return interpolate.RegularGridInterpolator([h_vec], v2_vec,bounds_error=False,fill_value=None)
 
 def v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp):
     """ The utility function to be maximized in period 2
-
     Args: 
         w (float): The wage rate
         h1 (float): Human capital in the first period
@@ -150,32 +149,30 @@ def v1(w,h1,l1,b,rho,gamma,beta,Delta,v2_interp):
         gamma (float): Disutility of working
         Delta (float): Stochastic experience gain
         beta (float): Discount factor of human capital
-        v2_interp 
-
+        v2_interp (scipy interpolator): Expected utility of period 2
     Returns:
-        v1
+        v1 (float): Value of utility in period 1
     """
 
-    # i. v2 value if low human capital
+    # a. v2 value if low human capital
     h2_low = h1 + l1
     v2_low = v2_interp([h2_low])[0]
     
-    # ii. v2 value if high human capital
+    # b. v2 value if high human capital
     h2_high = h1 + l1 + Delta
     v2_high = v2_interp([h2_high])[0]
     
-    # iii. expected v2 value
+    # c. expected v2 value
     v2 = 0.5*v2_low + 0.5*v2_high
     
-    # iv. consumption in period 1
+    # d. consumption in period 1
     c1 = consumption(w,h1,l1,b)
     
-    # v. total value
+    # e. total value
     return utility(c1, rho) - disutility(gamma, l1) + beta*v2
 
 def solve_period_1(w,b,rho,gamma,beta,Delta,v2_interp,h_vec):
     """ The utility function to be maximized in period 2
-
     Args: 
         w (float): The wage rate
         h2 (float): Human capital in the second period
@@ -186,9 +183,10 @@ def solve_period_1(w,b,rho,gamma,beta,Delta,v2_interp,h_vec):
         Delta (float): Stochastic experience gain
         beta (float): Discount factor of human capital
         v2_interp 
-
     Returns:
-        Something
+        v1_vec (arrey): Vector of values for v1 for different values of human capital
+        l1_vec (arrey): Vector of intergers for work (l=1) or not (l=0)
+        Fig (plot): 2 plots illustrating v1 and l1 as a function of human capital
     """
     
     # a. grids
@@ -204,7 +202,7 @@ def solve_period_1(w,b,rho,gamma,beta,Delta,v2_interp,h_vec):
 
         v1_vec[i] = v1(w,h1,l1_vec[i],b,rho,gamma,beta,Delta,v2_interp)
 
-    # illustration
+    # c. illustration
     fig = plt.figure(figsize=(12,4))
     
     ax = fig.add_subplot(1,2,1)
@@ -239,24 +237,7 @@ def solve_period_1(w,b,rho,gamma,beta,Delta,v2_interp,h_vec):
 
 ###################################################
 #           Functions for problem 1.3             #                 
-###################################################
-
-def optimization_period_2():
-    """
-    """
-    def diff_p2(w,h2,b,rho,gamma):
-        return v2(w,h2,1,b,rho,gamma) - v2(w,h2,0,b,rho,gamma)
-
-    def f(par_size):
-        w,h2,b,rho,gamma = par_size
-        return diff_p2(w,h2,b,rho,gamma)
-
-    # Initial guess and bounds for w,h,b,rho,gamma
-    x0 = 0.9,1,1,2,0.1
-    bnds = ((0,b),(0.1,1.5),(w,None),(0,None),(0,None))
-
-    return optimize.minimize(f,x0,bounds=bnds)
-    
+################################################### 
 ######################################################################
 ##                       Assignment 2                               ##
 ######################################################################
@@ -268,19 +249,19 @@ def optimization_period_2():
 def fig_equilibrium(alpha,h,b,phi,gamma,pi_pt,y_pt,s_pt,v_t,s_t,v_shock):
     """ A figure illustrating the AD-curves and SRAS-curve before and after a shock to demand.
     Args:
-        alpha (float):
-        h (float):
-        b (float):
-        phi (float):
-        gamma (float):
-        pi_pt (float):
-        y_pt (float):
-        s_pt (float):
-        v_t (float):
-        s_t (float):
-        v_shock (float):
+        alpha (float): Marginal production of the interest rate 
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        pi_pt (float): Inflation in period (t-1)
+        y_pt (float): Output gap in period (t-1)
+        s_pt (float): Supply disturbance in period (t-1)
+        v_t (float): Demand disturbance in period t
+        s_t (float): Supply disturbance in period t
+        v_shock (float): Demand shock in period t
     Returns: 
-        Result: Figure
+        fig (plot): Plot of the ad-curves and sras-curve for different values of y.
     """
     # Value arreys are generated:
     y_arrey = np.linspace(-0.01,0.03)
@@ -298,10 +279,6 @@ def fig_equilibrium(alpha,h,b,phi,gamma,pi_pt,y_pt,s_pt,v_t,s_t,v_shock):
     
     ax.yaxis.grid(True, which='major')
  
-
-
-
-
     ax.set_xlabel('$y_t$')
     ax.set_ylabel('$\pi_t$')
 
@@ -324,22 +301,22 @@ def persistent_disturbance(T,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,om
     """ Draws a figure displaying the persistence of a shock 
     Args:
         T (integer): Number of periods
-        sol_func_y (python function):
-        sol_func_pi (python function)_
-        alpha (float):
-        h (float):
-        b (float):
-        phi (float):
-        gamma (float):
-        delta (float):
-        omega (float):
-        y_neg1 (float):
-        pi_neg1 (float):
-        s_neg1 (float):
-        v_neg1 (float):
-        x0 (float):     
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+        x0 (float): Demand shock in period 0    
     Returns: 
-        Result: Figure
+        Fig (plot): A plot of inflation and a plot of output over time.
     """
     # The initial values:
     y_arrey  = [y_neg1]
@@ -410,24 +387,33 @@ def stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,om
     """ The equilibrium values of y and pi over time in an model with stochastic shocks.
     Args:
         T (integer): Number of periods
-        alpha (float):
-        h (float):
-        b (float):
-        phi (float):
-        gamma (float):
-        pi_pt (float):
-        y_pt (float):
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
     Returns: 
         arreys for y, pi and T
     """
 
-    # The initial values:
+    # a. The initial values:
     y_arrey  = [y_neg1]
     pi_arrey = [pi_neg1]
     s_arrey  = [s_neg1]
     v_arrey  = [v_neg1]
    
-    # Simulation of shocks
+    # b. Simulation of shocks
     np.random.seed(seed)
 
     x_arrey = sigma_x*np.random.normal(size=T)
@@ -435,7 +421,7 @@ def stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,om
     
     T_arrey = [0]
 
-    # Loop through genereating the arreys:
+    # c. Loop through genereating the arreys:
     for i in range(1,T):
         T_arrey.append(i)
 
@@ -454,17 +440,18 @@ def stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,om
 def fig_stochastic_shocks(stochastic_shocks):
     """ Illustrates the values of y and pi over time.
     Args:
+        stochastic_shocks (Multiple arreys): y_arrey, pi_arrey, t_arrey
     Returns:
-        Figure
+        Figure (plot): Plot of output and inflation over T periods.
     """
     T_arrey = stochastic_shocks[2]
     y_arrey = stochastic_shocks[0]
     pi_arrey = stochastic_shocks[1]
     
-    # The figure is drawn
+    # a. The figure is drawn
     fig = plt.figure(figsize = (12,8))
     
-    # The figure showing y
+    # b. The figure showing y
     ax = fig.add_subplot(2,1,1)
     ax.plot(T_arrey, y_arrey, label="$y^*$-curve",color='red')
     ax.set_xlabel('$t$')
@@ -477,7 +464,7 @@ def fig_stochastic_shocks(stochastic_shocks):
     ax.spines['bottom'].set_visible(False)
     ax.spines['left'].set_visible(False)
     
-    # The figure showing pi
+    # c. The figure showing pi
     ax = fig.add_subplot(2,1,2)
     ax.plot(T_arrey, pi_arrey, label="$\pi^*$-curve",color='darkorange')
     ax.set_xlabel('$t$')
@@ -501,12 +488,31 @@ def fig_stochastic_shocks(stochastic_shocks):
 def plot_corr_phi(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,sigma_x,sigma_c,
                                 y_neg1,pi_neg1,s_neg1,v_neg1):
     """ A plot of phi and the correlation between y and pi
+    Args:
+        T (integer): Number of periods
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+    Returns:
+        Fig (plot): A plot of values of the correlation between y and pi for different values of phi.
     """
-    # The arreys are initilized:
+    # a. The arreys are initilized:
     phi_arrey = np.linspace(0,1)
     corr_arrey = [] # Empty
     
-    # Loop through the phi_arrey to get the corresponding value of the correlation
+    # b. Loop through the phi_arrey to get the corresponding value of the correlation
     for phi in phi_arrey:
         
         simul = stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
@@ -518,7 +524,7 @@ def plot_corr_phi(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,sigm
         correlation = np.corrcoef(y_arrey,pi_arrey)[1][0]
         corr_arrey.append(correlation)
 
-    # The figure is drawn
+    # c. The figure is drawn
     fig, ax = plt.subplots(figsize = (10,6))
 
     ax.plot(phi_arrey,corr_arrey,color='lightblue',linewidth=4)
@@ -537,11 +543,33 @@ def plot_corr_phi(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,sigm
 
 def correlations(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
                                         sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1):
+    """Correlation between y and pi
+    Args:
+        T (integer): Number of periods
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+    Returns:
+        corr (float): The correlation between y and pi.
     """
-    """
+    # The simulation data
     simul = stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
                                         sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)
-        
+
+    # The y and pi arreys    
     y_arrey = simul[0]
     pi_arrey = simul[1]
         
@@ -549,13 +577,32 @@ def correlations(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
 
 def optimize_phi(corr_goal,T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,sigma_x,sigma_c,
                         y_neg1,pi_neg1,s_neg1,v_neg1):
+    """Optimization of phi so correlation responds to the correlation goal:
+    Args:
+        corr_goal (float): Correlation which is wished optained
+        T (integer): Number of periods
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+    Returns:
+        Optimize results (Scipy optimize result): Characteristics and results of the optimization process.
     """
-    """
-
+    # Our objective function
     obj = lambda phi_obj: (correlations(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi_obj,gamma,delta,
                                             omega,sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1) 
                                                 - corr_goal)**2
-    
     # Initial guess
     x0 = 0
     
@@ -567,18 +614,40 @@ def optimize_phi(corr_goal,T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,o
 
 def statistics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
                                     sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1):
+    """Statistics is calculated for y and pi
+    Args:
+        T (integer): Number of periods
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+    Returns:
+        var_y,var_pi,corr,autocorr_y,autocorr_pi (float): Statistics
     """
-    """
+    # The simulated data to be examined
     simul = stochastic_shocks(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
                                         sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)
         
+    # The arreys
     y = simul[0]
     pi = simul[1]
 
+    # The statistics is calculated
     var_y  = np.var(y)
     var_pi = np.var(pi)
     corr   = np.corrcoef(y,pi)[1][0]
-
     autocorr_y  = np.corrcoef(y[1:],y[:-1])[1][0]
     autocorr_pi = np.corrcoef(pi[1:],pi[:-1])[1][0]
 
@@ -587,9 +656,35 @@ def statistics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
 def optimize_all_char(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,
                                 y_neg1,pi_neg1,s_neg1,v_neg1,
                                 var_y,var_pi,corr_y_pi,autocorr_y,autocorr_pi):
+    """ Optimizes all statistics to correspond to the values set by: 
+        var_y,var_pi,corr_y_pi,autocorr_y,autocorr_pi
+    Args:
+        T (integer): Number of periods
+        seed (integer): Seed number
+        sol_func_y (python function): Value in y in equilibrium as a function of parameters
+        sol_func_pi (python function): Value in pi in equilibrium as a function of parameters
+        alpha (float): Marginal production of the interest rate
+        h (float): Inflation aversion parameter
+        b (float): Outputgap aversion parameter
+        phi (float): Marginal expected inflation of past inflation
+        gamma (float): Marginal inflation of the output gap
+        delta (float): Demand shock parameter
+        omega (float): Supply shock parameter
+        sigma_x (float): Standard deviation of demand shock
+        sigma_c (float): Standard deviation of supply shock
+        y_neg1 (float): Output gap in period (-1)
+        pi_neg1 (float): Inflation in period (-1)
+        s_neg1 (float): Supply disturbance in period (-1)
+        v_neg1 (float): Demand disturbance in period (-1)
+        var_y (float): The variation in y
+        var_pi (float): The variation in pi
+        corr_y_pi (float): The correlation between y and pi
+        autocorr_y (float): The autocorrelation in y
+        autocorr_pi (float): The autocorrelation in pi
+    Returns:
+        Optimization values(Scipy.optimizeresult): Characteristics of the optimization process
     """
-    """
-    # i. A function of phi sigma_x, sigma_c is defined
+    # a. A function of phi sigma_x, sigma_c is defined
     def funct(phi,sigma_x,sigma_c):
         return   (
                 (statistics(T,seed,sol_func_y,sol_func_pi,alpha,h,b,phi,gamma,delta,omega,
@@ -604,13 +699,13 @@ def optimize_all_char(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,
                                 sigma_x,sigma_c,y_neg1,pi_neg1,s_neg1,v_neg1)[4] - autocorr_pi)**2
                   )
     
-    # ii. A function of the prior function collecting the parameters to be optemized in a 
+    # b. A function of the prior function collecting the parameters to be optemized in a 
     #     combined variable.
     def f(par_size):
         phi,sigma_x,sigma_c = par_size
         return funct(phi,sigma_x,sigma_c)
 
-    # Initial guess and bounds for phi, sigma_c, sigma_x
+    # c. Initial guess and bounds for phi, sigma_c, sigma_x
     x0 = 0.5,1,1
     bnds = ((0,1), (1e-8,None), (1e-8,None))
 
@@ -625,7 +720,16 @@ def optimize_all_char(T,seed,sol_func_y,sol_func_pi,alpha,h,b,gamma,delta,omega,
 ##################################################
 
 def demand_data(b1,b2,b3,e1,e2,e3):
-    """
+    """ Simulates the excess demand
+    Args:
+        b1 (arrey): Budget shares for consumers good 1
+        b2 (arrey): Budget shares for consumers good 2
+        b3 (arrey): Budget shares for consumers good 3
+        e1 (arrey): Endowments for good 1
+        e2 (arrey): Endowments for good 2
+        e3 (arrey): Endowments for good 3
+    Returns:
+        grids for p1, p2, e1, e2, e3 (arreys)
     """
     # A set of price vectors are defined
     p1_vec = np.linspace(0.1,5,100)
@@ -648,10 +752,20 @@ def demand_data(b1,b2,b3,e1,e2,e3):
     return p1_grid,p2_grid,e1_grid,e2_grid,e3_grid
 
 def demand_plots_3D(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):  
+    """ Plots 3D excess demand plots for good 1 and 2
+    Args:
+        p1_grid (ndarrey): grid for p1
+        p2_grid (ndarrey): grid for p2
+        e1_grid (ndarrey): grid for e1
+        e2_grid (ndarrey): grid for e2
+        e3_grid (ndarrey): grid for e3
+    Returns:
+        Plot of excess demand for good 1 and good 2.
     """
-    """
+    # Collective figure
     fig = plt.figure(figsize=(15,10))
 
+    # Subplot good 1, axes crossing in (0,0)
     ax1 = fig.add_subplot(2,2,1,projection='3d')
     fig1 = ax1.plot_surface(p1_grid, p2_grid, e1_grid, color='red')
     ax1.set_xlabel('$p_1$')
@@ -659,6 +773,7 @@ def demand_plots_3D(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
     ax1.invert_xaxis()
     ax1.set_title('Excess demand of $x_1$')
 
+    # Subplot good 1, axes crossing in (5,5)
     ax1 = fig.add_subplot(2,2,2,projection='3d')
     fig1 = ax1.plot_surface(p1_grid, p2_grid, e1_grid, color='red')
     ax1.set_xlabel('$p_1$')
@@ -666,6 +781,7 @@ def demand_plots_3D(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
     ax1.invert_yaxis()
     ax1.set_title('Excess demand of $x_1$')
 
+    # Subplot good 2, axes crossing in (0,0)
     ax2 = fig.add_subplot(2,2,3,projection='3d')
     fig2 = ax2.plot_surface(p1_grid, p2_grid, e2_grid, color='darkorange')
     ax2.set_xlabel('$p_1$')
@@ -673,6 +789,7 @@ def demand_plots_3D(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
     ax2.invert_xaxis()
     ax2.set_title('Excess demand of $x_2$')
 
+    # Subplot good 2, axes crossing in (5,5)
     ax2 = fig.add_subplot(2,2,4,projection='3d')
     fig2 = ax2.plot_surface(p1_grid, p2_grid, e2_grid, color='darkorange')
     ax2.set_xlabel('$p_1$')
@@ -684,8 +801,17 @@ def demand_plots_3D(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
     return
 
 def demand_plot_x3(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
+    """ Plots 3D excess demand plots for good 3
+    Args:
+        p1_grid (ndarrey): grid for p1
+        p2_grid (ndarrey): grid for p2
+        e1_grid (ndarrey): grid for e1
+        e2_grid (ndarrey): grid for e2
+        e3_grid (ndarrey): grid for e3
+    Returns:
+        Plot of excess demand for good 3
     """
-    """
+    # Figure for excess demand, good 3:
     fig3 = plt.figure(figsize=(15,5))
     ax3 = fig3.add_subplot(1,1,1,projection='3d')
     fig3 = ax3.plot_surface(p1_grid, p2_grid, e3_grid, color='lightblue')
@@ -700,7 +826,21 @@ def demand_plot_x3(p1_grid,p2_grid,e1_grid,e2_grid,e3_grid):
 ##################################################
 
 def find_equilibrium(b1,b2,p1,p2,e1,e2,e3,eps,kappa,N,maxiter=25000):
-    """
+    """ Finds the Walras equilibrium by a Tatonnement process:
+    Args:
+        b1 (arrey): Budget shares for consumers good 1
+        b2 (arrey): Budget shares for consumers good 2
+        b3 (arrey): Budget shares for consumers good 3
+        p1 (arrey): Prices for good 1
+        p2 (arrey): Prices for good 2
+        e1 (arrey): Endowments for good 1
+        e2 (arrey): Endowments for good 2
+        e3 (arrey): Endowments for good 3
+        kappa (float): Parameter
+        N (integer): Number of consumers
+        maxiter (integer): Maximum number of iterations.
+    Returns:
+        Walras equilibrium for (p1,p2)
     """
     t = 0
     while True:
@@ -731,7 +871,19 @@ def find_equilibrium(b1,b2,p1,p2,e1,e2,e3,eps,kappa,N,maxiter=25000):
 ##################################################
 
 def utility_walras(p1,p2,e1,e2,e3,b1,b2,b3,gamma):
-    """
+    """ The utility function
+    Args:    
+        b1 (float): Budget shares for consumers good 1
+        b2 (float): Budget shares for consumers good 2
+        b3 (float): Budget shares for consumers good 3
+        p1 (float): Prices for good 1
+        p2 (float): Prices for good 2
+        e1 (float): Endowments for good 1
+        e2 (float): Endowments for good 2
+        e3 (float): Endowments for good 3
+        gamma (float): Parameter
+    Returns:
+        Utility
     """
     # The income function
     I = p1*e1 + p2*e2 + e3
@@ -744,13 +896,27 @@ def utility_walras(p1,p2,e1,e2,e3,b1,b2,b3,gamma):
 
     return utility
     
-def utility_hist(p1,p2,e1,e2,e3,b1,b2,b3,gamma):  
+def utility_hist(p1,p2,e1,e2,e3,b1,b2,b3,gamma):
+    """ Density plot of the utility function
+    Args:    
+        b1 (float): Budget shares for consumers good 1
+        b2 (float): Budget shares for consumers good 2
+        b3 (float): Budget shares for consumers good 3
+        p1 (float): Prices for good 1
+        p2 (float): Prices for good 2
+        e1 (float): Endowments for good 1
+        e2 (float): Endowments for good 2
+        e3 (float): Endowments for good 3
+        gamma (float): Parameter
+    Returns:
+        Utility density plot
+    """
     
     utility = utility_walras(p1,p2,e1,e2,e3,b1,b2,b3,gamma)
     mean = utility.mean()
     
     # The figure
-    fig = plt.figure(figsize=(12,6))
+    fig = plt.figure(figsize=(10,6))
     ax = fig.add_subplot(1,1,1)
     ax.hist(utility,bins=500,color='lightblue')
     plt.axvline(mean, color='red', linestyle='dashed')
@@ -764,34 +930,5 @@ def utility_hist(p1,p2,e1,e2,e3,b1,b2,b3,gamma):
     ax.spines['bottom'].set_visible(False)
     ax.spines['left'].set_visible(False)
     
+    plt.tight_layout()
     return
-
-def gamma_slider(p1,p2,e1,e2,e3,b1,b2,b3,gamma): 
-    """
-    """
-    utility = utility_walras(p1,p2,e1,e2,e3,b1,b2,b3,gamma)
-    mean = utility.mean()
-    
-    # The figure
-    fig = plt.figure(figsize=(12,6))
-    ax = fig.add_subplot(1,1,1)
-    ax.hist(utility,bins=500,color='lightblue')
-    plt.axvline(mean, color='red', linestyle='dashed')
-   
-    ax.set_xlabel('Utility')
-    ax.set_ylabel('# consumers')
-
-    ax.grid()
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['left'].set_visible(False)
-    
-    widgets.interact(gamma_slider,
-        p1=widgets.fixed(p1),
-        p2=widgets.fixed(p2),
-        e1=widgets.fixed(e1),
-        e2=widgets.fixed(e2),
-        e3=widgets.fixed(e3),
-        gamma=widgets.FloatSlider(description="$\gamma$", min=0.01, max=2, step=0.01, value=.8)
-    );
